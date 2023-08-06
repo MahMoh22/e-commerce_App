@@ -49,11 +49,11 @@ ThemeData themeManager() {
       textTheme: TextTheme(
         displayLarge:
             getLightStyle(color: ColorManager.wight, fontSize: AppSizes.s22),
-        bodyLarge: getSemiBoldStyle(
+        headlineLarge: getSemiBoldStyle(
             color: ColorManager.darkGray, fontSize: AppSizes.s16),
-        bodyMedium: getMediumStyle(
+        titleMedium: getMediumStyle(
             color: ColorManager.lightGray, fontSize: AppSizes.s14),
-        displaySmall: getRegularStyle(color: ColorManager.gray1),
+        bodyLarge: getRegularStyle(color: ColorManager.gray1),
         bodySmall: getRegularStyle(color: ColorManager.gray),
       ),
       //InputDecoration theme (TextFormField)
