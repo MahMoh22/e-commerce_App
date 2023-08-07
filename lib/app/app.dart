@@ -3,8 +3,8 @@ import 'package:e_commerce_app/presentation/resources/theme_manager.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatefulWidget {
-  MyApp._internal(); //named constractor
-  static final MyApp _instance = MyApp._internal(); //single instance
+  const MyApp._internal(); //named constractor
+  static const MyApp _instance = MyApp._internal(); //single instance
   factory MyApp() => _instance; //factory
   @override
   State<MyApp> createState() => _MyAppState();
