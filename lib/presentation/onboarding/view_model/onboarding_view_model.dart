@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:e_commerce_app/domain/models.dart';
+import 'package:e_commerce_app/domain/model/models.dart';
 import 'package:e_commerce_app/presentation/base/base_view_model.dart';
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
@@ -10,7 +10,7 @@ class OnboardingViewModel
         BaseViewModel,
         OnboardingViewModelInputs,
         OnboardingViewModelOutputs {
-  StreamController<SilderViewObject> _streamController = StreamController();
+  final StreamController<SilderViewObject> _streamController = StreamController();
   late final List<SliderObject> _list;
   int _currentIndex = 0;
   @override

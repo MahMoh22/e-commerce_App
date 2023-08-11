@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/domain/models.dart';
+import 'package:e_commerce_app/domain/model/models.dart';
 import 'package:e_commerce_app/presentation/onboarding/view_model/onboarding_view_model.dart';
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/color_manager.dart';
@@ -18,7 +18,7 @@ class OnboardingView extends StatefulWidget {
 
 class _OnboardingViewState extends State<OnboardingView> {
   final PageController _pageControler = PageController();
-  OnboardingViewModel _viewModel = OnboardingViewModel();
+  final OnboardingViewModel _viewModel = OnboardingViewModel();
   _bind() {
     _viewModel.start();
   }
@@ -148,8 +148,8 @@ class _OnboardingViewState extends State<OnboardingView> {
     );
   }
 
-  Widget _getProperCercle(int index, _currentIndex) {
-    if (_currentIndex == index) {
+  Widget _getProperCercle(int index, currentIndex) {
+    if (currentIndex == index) {
       return SvgPicture.asset(ImageAssets.hollowCircleIc);
     } else {
       return SvgPicture.asset(ImageAssets.solidCircleIc);
