@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/presentation/forgot_password/forgot_password_view.dart';
-import 'package:e_commerce_app/presentation/login/login_view.dart';
+import 'package:e_commerce_app/presentation/login/view/login_view.dart';
 import 'package:e_commerce_app/presentation/main/main_view.dart';
 import 'package:e_commerce_app/presentation/onboarding/view/onboarding_view.dart';
 import 'package:e_commerce_app/presentation/register/register_view.dart';

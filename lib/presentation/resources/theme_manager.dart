@@ -14,7 +14,7 @@ ThemeData themeManager() {
 
       //CardView theme
       cardTheme: CardTheme(
-        color: ColorManager.wight,
+        color: ColorManager.white,
         elevation: AppSizes.s4,
         shadowColor: ColorManager.gray,
       ),
@@ -25,7 +25,7 @@ ThemeData themeManager() {
         elevation: AppSizes.s4,
         shadowColor: ColorManager.lightPrimary,
         titleTextStyle:
-            getRegularStyle(color: ColorManager.wight, fontSize: AppSizes.s16),
+            getRegularStyle(color: ColorManager.white, fontSize: AppSizes.s16),
       ),
       //Button theme
       buttonTheme: ButtonThemeData(
@@ -42,13 +42,13 @@ ThemeData themeManager() {
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(AppSizes.s12)),
         textStyle:
-            getRegularStyle(color: ColorManager.wight, fontSize: AppSizes.s17),
+            getRegularStyle(color: ColorManager.white, fontSize: AppSizes.s17),
         backgroundColor: ColorManager.primary,
       )),
       //Text theme
       textTheme: TextTheme(
         displayLarge:
-            getLightStyle(color: ColorManager.wight, fontSize: AppSizes.s22),
+            getLightStyle(color: ColorManager.white, fontSize: AppSizes.s22),
         headlineLarge: getSemiBoldStyle(
             color: ColorManager.darkGray, fontSize: AppSizes.s16),
         headlineMedium: getRegularStyle(

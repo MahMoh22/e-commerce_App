@@ -3,6 +3,7 @@ import 'package:e_commerce_app/presentation/onboarding/view_model/onboarding_vie
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/color_manager.dart';
 import 'package:e_commerce_app/presentation/resources/constants_manager.dart';
+import 'package:e_commerce_app/presentation/resources/routes_manager.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
@@ -49,12 +50,12 @@ class _OnboardingViewState extends State<OnboardingView> {
       return Container();
     } else {
       return Scaffold(
-        backgroundColor: ColorManager.wight,
+        backgroundColor: ColorManager.white,
         appBar: AppBar(
           elevation: AppSizes.s0,
-          backgroundColor: ColorManager.wight,
+          backgroundColor: ColorManager.white,
           systemOverlayStyle: SystemUiOverlayStyle(
-            statusBarColor: ColorManager.wight,
+            statusBarColor: ColorManager.white,
             statusBarBrightness: Brightness.dark,
           ),
         ),
@@ -68,14 +69,16 @@ class _OnboardingViewState extends State<OnboardingView> {
               return OnboardingPage(silderViewObject.sliderObject);
             }),
         bottomSheet: Container(
-          color: ColorManager.wight,
+          color: ColorManager.white,
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, Routes.loginRoute);
+                  },
                   child: Text(
                     AppStrings.skip,
                     style: Theme.of(context).textTheme.titleMedium,

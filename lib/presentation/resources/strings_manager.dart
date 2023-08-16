@@ -1,6 +1,14 @@
 class AppStrings {
   static const noRouteFound = "No Route Found";
   static const skip = "Skip";
+  static const userName = "User Name";
+  static const password = "Password";
+  static const userNameError = "Please enter your User Name";
+  static const passwordError = "Please enter your Password";
+  static const login = "Login";
+  static const forgetPassword = "Forget Password?";
+  static const registerText = "Not a member ? SignUp";
+
   static const onboardingTitle1 = "SEE THE BEST COURSE #1";
   static const onboardingTitle2 = "SEE THE BEST COURSE #2";
   static const onboardingTitle3 = "SEE THE BEST COURSE #3";
