@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/app/di.dart';
 import 'package:e_commerce_app/presentation/login/view_model/login_view_model.dart';
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/color_manager.dart';
@@ -13,7 +14,7 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  final LoginViewModel _loginViewModel = LoginViewModel(/*_loginUsecase*/);
+  final LoginViewModel _loginViewModel = instance<LoginViewModel>();
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final GlobalKey _formKey = GlobalKey<FormState>();

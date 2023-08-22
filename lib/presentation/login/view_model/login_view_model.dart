@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ffi';
 
 import 'package:e_commerce_app/domain/usecase/login_usecase.dart';
 import 'package:e_commerce_app/presentation/base/base_view_model.dart';
@@ -14,8 +13,8 @@ class LoginViewModel
   final StreamController _areAllInputDataValidStreamController =
       StreamController<void>.broadcast();
   var loginObject = LoginObject("", "");
-  //final LoginUsecase _loginUsecase;
-  LoginViewModel(/*this._loginUsecase*/);
+  final LoginUsecase _loginUsecase;
+  LoginViewModel(this._loginUsecase);
   @override
   void dispose() {
     _userNameStreamController.close();
@@ -30,10 +29,10 @@ class LoginViewModel
 
   @override
   login() async {
-    /*(await _loginUsecase.excute(
+    (await _loginUsecase.excute(
             LoginUsecaseInput(loginObject.username, loginObject.password)))
         .fold((failure) => {print(failure.message)},
-            (data) => {print(data.customer?.name)});*/
+            (data) => {print(data.customer?.name)});
   }
 
   @override
