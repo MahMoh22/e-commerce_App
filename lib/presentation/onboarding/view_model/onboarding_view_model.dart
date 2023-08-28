@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:e_commerce_app/domain/model/models.dart';
 import 'package:e_commerce_app/presentation/base/base_view_model.dart';
+import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 
@@ -75,6 +76,14 @@ class OnboardingViewModel
     inputSliderViewObject.add(
         SilderViewObject(_list[_currentIndex], _list.length, _currentIndex));
   }
+
+  @override
+  // TODO: implement inputState
+  Sink get inputState => throw UnimplementedError();
+
+  @override
+  // TODO: implement outputState
+  Stream<FlowState> get outputState => throw UnimplementedError();
 }
 
 abstract class OnboardingViewModelInputs {

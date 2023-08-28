@@ -3,9 +3,15 @@ import 'dart:async';
 import 'package:e_commerce_app/domain/usecase/login_usecase.dart';
 import 'package:e_commerce_app/presentation/base/base_view_model.dart';
 import 'package:e_commerce_app/presentation/common/freezed_data_classes.dart';
+import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer.dart';
+import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer_impl.dart';
 
 class LoginViewModel
     implements BaseViewModel, LoginViewModelInputs, LoginViewModelOutputs {
+final StreamController _inputStreamControler =
+      StreamController<FlowState>.broadcast();
+
+
   final StreamController _userNameStreamController =
       StreamController<String>.broadcast();
   final StreamController _passwordStreamController =
@@ -17,22 +23,37 @@ class LoginViewModel
   LoginViewModel(this._loginUsecase);
   @override
   void dispose() {
+    
     _userNameStreamController.close();
     _passwordStreamController.close();
     _areAllInputDataValidStreamController.close();
+    
   }
 
   @override
   void start() {
-    // TODO: implement start
+    // view model should tell view please show content state
+    inputState.add(ContentState());
   }
 
   @override
   login() async {
+    inputState.add(
+        LoadingState(stateRendererType: StateRendererType.popupLoadingState));
     (await _loginUsecase.excute(
             LoginUsecaseInput(loginObject.username, loginObject.password)))
-        .fold((failure) => {print(failure.message)},
-            (data) => {print(data.customer?.name)});
+        .fold(
+            (failure) => {
+                  // left (failure)
+                  inputState.add(ErrorState(
+                      StateRendererType.popupErrorState, failure.message))
+                },
+            (data) => {
+                  // right (success)
+                  // content
+                  inputState.add(ContentState())
+                  // navigate to main screen
+                });
   }
 
   @override
@@ -83,6 +104,14 @@ class LoginViewModel
     return _isUserNameValid(loginObject.username) &&
         _isPasswordValid(loginObject.password);
   }
+  
+  @override
+  // TODO: implement inputState
+  Sink get inputState => _inputStreamControler.sink;
+  
+  @override
+  // TODO: implement outputState
+  Stream<FlowState> get outputState => _inputStreamControler.stream.map((flowstate) => flowstate);
 }
 
 abstract class LoginViewModelInputs {

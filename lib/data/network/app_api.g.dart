@@ -13,7 +13,7 @@ class _AppServiceClient implements AppServiceClient {
     this._dio, {
     this.baseUrl,
   }) {
-    baseUrl ??= 'http://minafarid246.mocklab.io';
+    baseUrl ??= 'https://o3zdl.wiremockapi.cloud';
   }
 
   final Dio _dio;
@@ -23,14 +23,14 @@ class _AppServiceClient implements AppServiceClient {
   @override
   Future<AuthenticationResponse> login(
     String email,
-    String passowrd,
+    String password,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = {
       'email': email,
-      'passowrd': passowrd,
+      'password': password,
     };
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<AuthenticationResponse>(Options(

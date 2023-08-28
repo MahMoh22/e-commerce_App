@@ -30,6 +30,7 @@ Failure _handleError(DioException error) {
       return DataSource.BAD_REQUEST.getFailure();
     case DioExceptionType.connectionError:
       return DataSource.NO_INTERNET_CONNECTION.getFailure();
+    
     default:
       return DataSource.DEFAULT.getFailure();
   }

@@ -112,7 +112,7 @@ class _$_LoginObject implements _LoginObject {
 
   @override
   String toString() {
-    return 'LoginObject(username: $username, passowrd: $password)';
+    return 'LoginObject(username: $username, password: $password)';
   }
 
   @override
@@ -137,7 +137,7 @@ class _$_LoginObject implements _LoginObject {
 }
 
 abstract class _LoginObject implements LoginObject {
-  factory _LoginObject(final String username, final String passowrd) =
+  factory _LoginObject(final String username, final String password) =
       _$_LoginObject;
 
   @override

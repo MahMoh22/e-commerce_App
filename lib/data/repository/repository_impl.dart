@@ -28,6 +28,7 @@ class RepositoryImpl implements Repository {
               response.message ?? ResponseMessage.DEFAULT));
         }
       } catch (error) {
+        print(error);
         return Left(ErrorHandler.handler(error).failure);
       }
     } else {

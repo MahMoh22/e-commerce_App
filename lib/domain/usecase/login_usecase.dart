@@ -12,12 +12,12 @@ class LoginUsecase implements BaseUsecase<LoginUsecaseInput, Authentication> {
   @override
   Future<Either<Failure, Authentication>> excute(
       LoginUsecaseInput input) async {
-    return await _repository.login(LoginRequest(input.email, input.passowrd));
+    return await _repository.login(LoginRequest(input.email, input.password));
   }
 }
 
 class LoginUsecaseInput {
   String email;
-  String passowrd;
-  LoginUsecaseInput(this.email, this.passowrd);
+  String password;
+  LoginUsecaseInput(this.email, this.password);
 }

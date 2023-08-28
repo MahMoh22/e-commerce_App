@@ -6,6 +6,9 @@ class AppStrings {
   static const userNameError = "Please enter your User Name";
   static const passwordError = "Please enter your Password";
   static const login = "Login";
+  static const loading = "Loading...";
+  static const retryAgain = "Retry Again";
+  static const ok = "Ok";
   static const forgetPassword = "Forget Password?";
   static const registerText = "Not a member ? SignUp";
 
