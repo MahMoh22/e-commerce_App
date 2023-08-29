@@ -1,11 +1,14 @@
+import 'package:e_commerce_app/app/app_prefs.dart';
 import 'package:e_commerce_app/app/di.dart';
 import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:e_commerce_app/presentation/login/view_model/login_view_model.dart';
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/color_manager.dart';
+import 'package:e_commerce_app/presentation/resources/routes_manager.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -16,6 +19,8 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   final LoginViewModel _loginViewModel = instance<LoginViewModel>();
+  final AppPreferences _appPreferences = instance<AppPreferences>();
+
   final TextEditingController _userNameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final GlobalKey _formKey = GlobalKey<FormState>();
@@ -25,6 +30,16 @@ class _LoginViewState extends State<LoginView> {
         () => _loginViewModel.setUserName(_userNameController.text));
     _passwordController.addListener(
         () => _loginViewModel.setPassword(_passwordController.text));
+    _loginViewModel.isUserLoggedInSuccessfullyStreamController.stream
+        .listen((isLoggedin) {
+      if (isLoggedin) {
+        // navigate to main screen
+        SchedulerBinding.instance.addPostFrameCallback((_) {
+          _appPreferences.setuserLoggedin();
+          Navigator.of(context).pushReplacementNamed(Routes.mainRoute);
+        });
+      }
+    });
   }
 
   @override

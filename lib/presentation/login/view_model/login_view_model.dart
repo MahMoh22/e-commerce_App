@@ -8,10 +8,10 @@ import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer
 
 class LoginViewModel
     implements BaseViewModel, LoginViewModelInputs, LoginViewModelOutputs {
-final StreamController _inputStreamControler =
+  final StreamController _inputStreamControler =
       StreamController<FlowState>.broadcast();
-
-
+  final StreamController isUserLoggedInSuccessfullyStreamController =
+      StreamController<bool>();
   final StreamController _userNameStreamController =
       StreamController<String>.broadcast();
   final StreamController _passwordStreamController =
@@ -23,11 +23,11 @@ final StreamController _inputStreamControler =
   LoginViewModel(this._loginUsecase);
   @override
   void dispose() {
-    
     _userNameStreamController.close();
     _passwordStreamController.close();
     _areAllInputDataValidStreamController.close();
-    
+    _inputStreamControler.close();
+    isUserLoggedInSuccessfullyStreamController.close();
   }
 
   @override
@@ -47,13 +47,13 @@ final StreamController _inputStreamControler =
                   // left (failure)
                   inputState.add(ErrorState(
                       StateRendererType.popupErrorState, failure.message))
-                },
-            (data) => {
-                  // right (success)
-                  // content
-                  inputState.add(ContentState())
-                  // navigate to main screen
-                });
+                }, (data) {
+      // right (success)
+      // content
+      inputState.add(ContentState());
+      // navigate to main screen
+      isUserLoggedInSuccessfullyStreamController.add(true);
+    });
   }
 
   @override
@@ -104,14 +104,15 @@ final StreamController _inputStreamControler =
     return _isUserNameValid(loginObject.username) &&
         _isPasswordValid(loginObject.password);
   }
-  
+
   @override
   // TODO: implement inputState
   Sink get inputState => _inputStreamControler.sink;
-  
+
   @override
   // TODO: implement outputState
-  Stream<FlowState> get outputState => _inputStreamControler.stream.map((flowstate) => flowstate);
+  Stream<FlowState> get outputState =>
+      _inputStreamControler.stream.map((flowstate) => flowstate);
 }
 
 abstract class LoginViewModelInputs {

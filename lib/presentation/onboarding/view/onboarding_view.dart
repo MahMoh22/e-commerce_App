@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/app/app_prefs.dart';
+import 'package:e_commerce_app/app/di.dart';
 import 'package:e_commerce_app/domain/model/models.dart';
 import 'package:e_commerce_app/presentation/onboarding/view_model/onboarding_view_model.dart';
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
@@ -20,7 +22,9 @@ class OnboardingView extends StatefulWidget {
 class _OnboardingViewState extends State<OnboardingView> {
   final PageController _pageControler = PageController();
   final OnboardingViewModel _viewModel = OnboardingViewModel();
+  final AppPreferences _appPreferences = instance<AppPreferences>();
   _bind() {
+    _appPreferences.setOnboardingScreenViewed();
     _viewModel.start();
   }
 
