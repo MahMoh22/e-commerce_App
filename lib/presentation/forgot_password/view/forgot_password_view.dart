@@ -1,45 +1,31 @@
 import 'package:e_commerce_app/app/app_prefs.dart';
 import 'package:e_commerce_app/app/di.dart';
 import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer_impl.dart';
-import 'package:e_commerce_app/presentation/login/view_model/login_view_model.dart';
+import 'package:e_commerce_app/presentation/forgot_password/view_model/forgot_password_view_model.dart';
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/color_manager.dart';
 import 'package:e_commerce_app/presentation/resources/routes_manager.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
+class ForgotPasswordView extends StatefulWidget {
+  const ForgotPasswordView({super.key});
 
   @override
-  State<LoginView> createState() => _LoginViewState();
+  State<ForgotPasswordView> createState() => _ForgotPasswordViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
-  final LoginViewModel _loginViewModel = instance<LoginViewModel>();
-  final AppPreferences _appPreferences = instance<AppPreferences>();
-
-  final TextEditingController _userNameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+class _ForgotPasswordViewState extends State<ForgotPasswordView> {
+  final ForgotPasswordViewModel _forgotPasswordViewModel =
+      instance<ForgotPasswordViewModel>();
+  final TextEditingController _emailTextEditingController =
+      TextEditingController();
   final GlobalKey _formKey = GlobalKey<FormState>();
   _bind() {
-    _loginViewModel.start();
-    _userNameController.addListener(
-        () => _loginViewModel.setUserName(_userNameController.text));
-    _passwordController.addListener(
-        () => _loginViewModel.setPassword(_passwordController.text));
-    _loginViewModel.isUserLoggedInSuccessfullyStreamController.stream
-        .listen((isLoggedin) {
-      if (isLoggedin) {
-        // navigate to main screen
-        SchedulerBinding.instance.addPostFrameCallback((_) {
-          _appPreferences.setuserLoggedin();
-          Navigator.of(context).pushReplacementNamed(Routes.mainRoute);
-        });
-      }
-    });
+    _forgotPasswordViewModel.start();
+    _emailTextEditingController.addListener(() =>
+        _forgotPasswordViewModel.setEmail(_emailTextEditingController.text));
   }
 
   @override
@@ -53,12 +39,10 @@ class _LoginViewState extends State<LoginView> {
     return Scaffold(
       backgroundColor: ColorManager.white,
       body: StreamBuilder<FlowState>(
-          stream: _loginViewModel.outputState,
+          stream: _forgotPasswordViewModel.outputState,
           builder: (context, snapshot) {
-            return snapshot.data?.getScreenWidget(context, _getContentWidgit(),
-                    () {
-                  _loginViewModel.login();
-                }) ??
+            return snapshot.data
+                    ?.getScreenWidget(context, _getContentWidgit(), () {}) ??
                 _getContentWidgit();
           }),
     );
@@ -82,11 +66,11 @@ class _LoginViewState extends State<LoginView> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: AppPadding.p28),
                   child: StreamBuilder<bool>(
-                      stream: _loginViewModel.outputIsUserNameValid,
+                      stream: _forgotPasswordViewModel.outputIsEmailValid,
                       builder: (context, snapshot) {
                         return TextFormField(
                           keyboardType: TextInputType.emailAddress,
-                          controller: _userNameController,
+                          controller: _emailTextEditingController,
                           decoration: InputDecoration(
                               hintText: AppStrings.userName,
                               labelText: AppStrings.userName,
@@ -103,28 +87,7 @@ class _LoginViewState extends State<LoginView> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: AppPadding.p28),
                   child: StreamBuilder<bool>(
-                      stream: _loginViewModel.outputIspasswordValid,
-                      builder: (context, snapshot) {
-                        return TextFormField(
-                          keyboardType: TextInputType.text,
-                          controller: _passwordController,
-                          decoration: InputDecoration(
-                              hintText: AppStrings.password,
-                              labelText: AppStrings.password,
-                              errorText: (snapshot.data ?? true)
-                                  ? null
-                                  : AppStrings.passwordError),
-                        );
-                      }),
-                ),
-                const SizedBox(
-                  height: AppSizes.s28,
-                ),
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: AppPadding.p28),
-                  child: StreamBuilder<bool>(
-                      stream: _loginViewModel.outputAreAllInputsValid,
+                      stream: _forgotPasswordViewModel.outputAreAllInputsValid,
                       builder: (context, snapshot) {
                         return SizedBox(
                           width: double.infinity,
@@ -132,10 +95,10 @@ class _LoginViewState extends State<LoginView> {
                           child: ElevatedButton(
                               onPressed: (snapshot.data ?? false)
                                   ? () {
-                                      _loginViewModel.login();
+                                      _forgotPasswordViewModel.reset(context);
                                     }
                                   : null,
-                              child: const Text(AppStrings.login)),
+                              child: const Text(AppStrings.resetPassword)),
                         );
                       }),
                 ),
@@ -147,11 +110,11 @@ class _LoginViewState extends State<LoginView> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Navigator.of(context).pushNamed(
-                                Routes.forgotPasswordRoute);
+                            Navigator.of(context)
+                                .pushReplacementNamed(Routes.loginRoute);
                           },
                           child: Text(
-                            AppStrings.forgetPassword,
+                            AppStrings.login,
                             style: Theme.of(context).textTheme.titleMedium,
                             textAlign: TextAlign.end,
                           ),
@@ -159,7 +122,7 @@ class _LoginViewState extends State<LoginView> {
                         TextButton(
                           onPressed: () {
                             Navigator.of(context)
-                                .pushNamed(Routes.registerRoute);
+                                .pushReplacementNamed(Routes.registerRoute);
                           },
                           child: Text(
                             AppStrings.registerText,
@@ -177,7 +140,7 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   void dispose() {
-    _loginViewModel.dispose();
+    _forgotPasswordViewModel.dispose();
     super.dispose();
   }
 }

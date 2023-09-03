@@ -6,10 +6,13 @@ class AppStrings {
   static const userNameError = "Please enter your User Name";
   static const passwordError = "Please enter your Password";
   static const login = "Login";
+  static const success = "Success";
   static const loading = "Loading...";
   static const retryAgain = "Retry Again";
   static const ok = "Ok";
+  static const empty = "";
   static const forgetPassword = "Forget Password?";
+  static const resetPassword = "Reset Password";
   static const registerText = "Not a member ? SignUp";
 
   static const onboardingTitle1 = "SEE THE BEST COURSE #1";

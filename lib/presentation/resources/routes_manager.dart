@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/app/di.dart';
-import 'package:e_commerce_app/presentation/forgot_password/forgot_password_view.dart';
+import 'package:e_commerce_app/presentation/forgot_password/view/forgot_password_view.dart';
 import 'package:e_commerce_app/presentation/login/view/login_view.dart';
 import 'package:e_commerce_app/presentation/main/main_view.dart';
 import 'package:e_commerce_app/presentation/onboarding/view/onboarding_view.dart';
@@ -32,6 +32,7 @@ class RoutesGenerator {
       case Routes.registerRoute:
         return MaterialPageRoute(builder: (_) => const RegisterView());
       case Routes.forgotPasswordRoute:
+        initResetPasswordModule();
         return MaterialPageRoute(builder: (_) => const ForgotPasswordView());
       case Routes.mainRoute:
         return MaterialPageRoute(builder: (_) => const MainView());

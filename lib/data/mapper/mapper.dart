@@ -19,3 +19,9 @@ extension AuthenticationResponseMapper on AuthenticationResponse {
     return Authentication(customer?.toDomain(), contact?.toDomain());
   }
 }
+
+extension ResetPsswordResponseMapper on ResetPasswordResponse {
+  ResetPassword toDomain() {
+    return ResetPassword(support.orEmpty());
+  }
+}

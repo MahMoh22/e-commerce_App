@@ -33,3 +33,8 @@ class Authentication {
   Contact? contact;
   Authentication(this.customer, this.contact);
 }
+
+class ResetPassword {
+  String support;
+  ResetPassword(this.support);
+}

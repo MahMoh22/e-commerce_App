@@ -4,6 +4,8 @@ import 'package:e_commerce_app/data/response/responses.dart';
 
 abstract class RemoteDataSource {
   Future<AuthenticationResponse> login(LoginRequest loginRequest);
+  Future<ResetPasswordResponse> reset(
+      ForgotPasswordRequest forgotPasswordRequest);
 }
 
 class RemoteDataSourceImpl implements RemoteDataSource {
@@ -14,5 +16,11 @@ class RemoteDataSourceImpl implements RemoteDataSource {
   Future<AuthenticationResponse> login(LoginRequest loginRequest) async {
     return await _appServiceClient.login(
         loginRequest.email, loginRequest.password);
+  }
+
+  @override
+  Future<ResetPasswordResponse> reset(
+      ForgotPasswordRequest forgotPasswordRequest) async {
+    return await _appServiceClient.reset(forgotPasswordRequest.email);
   }
 }

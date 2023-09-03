@@ -106,11 +106,9 @@ class LoginViewModel
   }
 
   @override
-  // TODO: implement inputState
   Sink get inputState => _inputStreamControler.sink;
 
   @override
-  // TODO: implement outputState
   Stream<FlowState> get outputState =>
       _inputStreamControler.stream.map((flowstate) => flowstate);
 }
