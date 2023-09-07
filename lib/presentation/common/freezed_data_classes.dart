@@ -10,3 +10,15 @@ class LoginObject with _$LoginObject {
 class ResetPasswordObject with _$ResetPasswordObject {
   factory ResetPasswordObject(String email) = _ResetPasswordObject;
 }
+
+@freezed
+class RegisterObject with _$RegisterObject {
+  factory RegisterObject(
+    String userName,
+    String countryMobileCode,
+    String mobileNumber,
+    String email,
+    String password,
+    String profilePicture,
+  ) = _RegisterObject;
+}

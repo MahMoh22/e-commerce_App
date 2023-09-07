@@ -7,10 +7,13 @@ import 'package:e_commerce_app/data/network/network_info.dart';
 import 'package:e_commerce_app/data/repository/repository_impl.dart';
 import 'package:e_commerce_app/domain/repository/repository.dart';
 import 'package:e_commerce_app/domain/usecase/login_usecase.dart';
+import 'package:e_commerce_app/domain/usecase/register_usecase.dart';
 import 'package:e_commerce_app/domain/usecase/reset_password_usecase.dart';
 import 'package:e_commerce_app/presentation/forgot_password/view_model/forgot_password_view_model.dart';
 import 'package:e_commerce_app/presentation/login/view_model/login_view_model.dart';
+import 'package:e_commerce_app/presentation/register/view_model/regiter_view_model.dart';
 import 'package:get_it/get_it.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -58,5 +61,15 @@ Future<void> initResetPasswordModule() async {
         () => ResetPasswordUsecase(instance()));
     instance.registerFactory<ForgotPasswordViewModel>(
         () => ForgotPasswordViewModel(instance()));
+  }
+}
+
+Future<void> initRegisterModule() async {
+  if (!GetIt.I.isRegistered<RegisterUsecase>()) {
+    instance
+        .registerFactory<RegisterUsecase>(() => RegisterUsecase(instance()));
+    instance.registerFactory<RegisterViewModel>(
+        () => RegisterViewModel(instance()));
+    instance.registerFactory<ImagePicker>(() => ImagePicker());
   }
 }

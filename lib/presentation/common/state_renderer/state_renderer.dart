@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/app/constants.dart';
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/color_manager.dart';
 import 'package:e_commerce_app/presentation/resources/font_manager.dart';
@@ -25,7 +26,7 @@ class StateRenderer extends StatelessWidget {
       {super.key,
       required this.stateRendererType,
       required this.message,
-      this.title = AppStrings.empty,
+      this.title = Constants.empty,
       required this.retryActionFunction});
 
   final StateRendererType stateRendererType;

@@ -161,7 +161,7 @@ extension FlowStateExtention on FlowState {
       {required BuildContext context,
       required StateRendererType stateRendererType,
       required String message,
-      String title = AppStrings.empty}) {
+      String title = Constants.empty}) {
     WidgetsBinding.instance.addPostFrameCallback((_) => showDialog(
         context: context,
         builder: (context) => StateRenderer(

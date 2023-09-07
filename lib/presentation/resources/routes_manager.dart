@@ -3,7 +3,7 @@ import 'package:e_commerce_app/presentation/forgot_password/view/forgot_password
 import 'package:e_commerce_app/presentation/login/view/login_view.dart';
 import 'package:e_commerce_app/presentation/main/main_view.dart';
 import 'package:e_commerce_app/presentation/onboarding/view/onboarding_view.dart';
-import 'package:e_commerce_app/presentation/register/register_view.dart';
+import 'package:e_commerce_app/presentation/register/view/register_view.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/splash/splash_view.dart';
 import 'package:e_commerce_app/presentation/store_details/store_details_view.dart';
@@ -30,6 +30,7 @@ class RoutesGenerator {
         initLoginModule();
         return MaterialPageRoute(builder: (_) => const LoginView());
       case Routes.registerRoute:
+        initRegisterModule();
         return MaterialPageRoute(builder: (_) => const RegisterView());
       case Routes.forgotPasswordRoute:
         initResetPasswordModule();

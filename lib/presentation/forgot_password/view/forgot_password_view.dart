@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/app/app_prefs.dart';
 import 'package:e_commerce_app/app/di.dart';
 import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:e_commerce_app/presentation/forgot_password/view_model/forgot_password_view_model.dart';

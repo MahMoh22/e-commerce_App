@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:e_commerce_app/app/constants.dart';
+import 'package:e_commerce_app/app/functions.dart';
 import 'package:e_commerce_app/domain/usecase/reset_password_usecase.dart';
 import 'package:e_commerce_app/presentation/base/base_view_model.dart';
 import 'package:e_commerce_app/presentation/common/freezed_data_classes.dart';
 import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer.dart';
 import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer_impl.dart';
-import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
+
 import 'package:flutter/material.dart';
 
 class ForgotPasswordViewModel
@@ -19,7 +21,7 @@ class ForgotPasswordViewModel
       StreamController<String>.broadcast();
   final StreamController _areAllInputDataVaidStreamController =
       StreamController<void>.broadcast();
-  var resetPasswordObject = ResetPasswordObject(AppStrings.empty);
+  var resetPasswordObject = ResetPasswordObject(Constants.empty);
   final ResetPasswordUsecase _resetPasswordUsecase;
   ForgotPasswordViewModel(this._resetPasswordUsecase);
 
@@ -86,7 +88,7 @@ class ForgotPasswordViewModel
   }
 
   bool _isEmailValid(String email) {
-    return email.isNotEmpty;
+    return isEmailValid(email);
   }
 
   bool _areAllInputsValid() {
