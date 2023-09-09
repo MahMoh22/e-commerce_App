@@ -53,6 +53,7 @@ ThemeData themeManager() {
             color: ColorManager.darkGray, fontSize: AppSizes.s16),
         headlineMedium: getRegularStyle(
             color: ColorManager.darkGray, fontSize: AppSizes.s14),
+        titleLarge: getRegularStyle(color: ColorManager.white, fontSize: AppSizes.s16),
         titleMedium: getMediumStyle(
             color: ColorManager.primary, fontSize: AppSizes.s16),
         bodyLarge: getRegularStyle(color: ColorManager.gray1),

@@ -25,6 +25,10 @@ class AppStrings {
   static const invalidMobile = "the mobile number must be at least 10 digits";
   static const invalidPassword = "the password must be at least 6 digits";
   static const alreadyHaveAccount = "Already Have an Account? Login";
+  static const home = "Home";
+  static const search = "Search";
+  static const notifications = "Notifications";
+  static const settings = "Settings";
 
   static const onboardingTitle1 = "SEE THE BEST COURSE #1";
   static const onboardingTitle2 = "SEE THE BEST COURSE #2";

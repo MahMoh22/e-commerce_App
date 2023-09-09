@@ -13,7 +13,7 @@ class SilderViewObject {
   SilderViewObject(this.sliderObject, this.numberOfSlides, this.currentIndex);
 }
 
-//login models
+//auth models
 class Customer {
   String id;
   String name;
@@ -34,7 +34,43 @@ class Authentication {
   Authentication(this.customer, this.contact);
 }
 
+// reset password model
 class ResetPassword {
   String support;
   ResetPassword(this.support);
+}
+
+// home page model
+class Service {
+  String id;
+  String title;
+  String image;
+  Service(this.id, this.title, this.image);
+}
+
+class BannerAd {
+  String id;
+  String title;
+  String link;
+  String image;
+  BannerAd(this.id, this.title, this.link, this.image);
+}
+
+class Store {
+  String id;
+  String title;
+  String image;
+  Store(this.id, this.title, this.image);
+}
+
+class HomeData {
+  List<Service> services;
+  List<BannerAd> banners;
+  List<Store> stores;
+  HomeData(this.services, this.banners, this.stores);
+}
+
+class HomeObject {
+  HomeData data;
+  HomeObject(this.data);
 }
