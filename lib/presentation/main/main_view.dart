@@ -1,10 +1,9 @@
-import 'package:e_commerce_app/presentation/main/home/home_page.dart';
+import 'package:e_commerce_app/presentation/main/home/view/home_view.dart';
 import 'package:e_commerce_app/presentation/main/notifications/notifications_page.dart';
 import 'package:e_commerce_app/presentation/main/search/search_page.dart';
 import 'package:e_commerce_app/presentation/main/settings/setting_page.dart';
 import 'package:e_commerce_app/presentation/resources/color_manager.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
-import 'package:e_commerce_app/presentation/resources/theme_manager.dart';
 import 'package:e_commerce_app/presentation/resources/values_manager.dart';
 import 'package:flutter/material.dart';
 

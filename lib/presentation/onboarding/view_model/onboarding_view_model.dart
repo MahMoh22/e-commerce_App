@@ -11,7 +11,10 @@ class OnboardingViewModel
         BaseViewModel,
         OnboardingViewModelInputs,
         OnboardingViewModelOutputs {
-  final StreamController<SilderViewObject> _streamController = StreamController();
+  final StreamController<SilderViewObject> _streamController =
+      StreamController();
+  final StreamController _inputsStreamController =
+      StreamController<FlowState>();
   late final List<SliderObject> _list;
   int _currentIndex = 0;
   @override
@@ -50,11 +53,9 @@ class OnboardingViewModel
   }
 
   @override
-  // TODO: implement inputSliderViewObject
   Sink get inputSliderViewObject => _streamController.sink;
 //onboarding viewModel outputs
   @override
-  // TODO: implement outputSliderViewObject
   Stream<SilderViewObject> get outputSliderViewObject =>
       _streamController.stream.map((sliderViewObject) => sliderViewObject);
 
@@ -78,12 +79,11 @@ class OnboardingViewModel
   }
 
   @override
-  // TODO: implement inputState
-  Sink get inputState => throw UnimplementedError();
+  Sink get inputState => _inputsStreamController.sink;
 
   @override
-  // TODO: implement outputState
-  Stream<FlowState> get outputState => throw UnimplementedError();
+  Stream<FlowState> get outputState =>
+      _inputsStreamController.stream.map((flowState) => flowState);
 }
 
 abstract class OnboardingViewModelInputs {

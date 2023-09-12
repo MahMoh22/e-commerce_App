@@ -1,3 +1,5 @@
+
+
 import 'package:json_annotation/json_annotation.dart';
 part 'responses.g.dart';
 
@@ -76,7 +78,7 @@ class ResetPasswordResponse extends BaseResponse {
 @JsonSerializable()
 class ServicesResponse {
   @JsonKey(name: 'id')
-  String? id;
+  int? id;
 
   @JsonKey(name: 'title')
   String? title;
@@ -96,7 +98,7 @@ class ServicesResponse {
 @JsonSerializable()
 class BannersResponse {
   @JsonKey(name: 'id')
-  String? id;
+  int? id;
 
   @JsonKey(name: 'title')
   String? title;
@@ -119,7 +121,7 @@ class BannersResponse {
 @JsonSerializable()
 class StoresResponse {
   @JsonKey(name: 'id')
-  String? id;
+  int? id;
 
   @JsonKey(name: 'title')
   String? title;

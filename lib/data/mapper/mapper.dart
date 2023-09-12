@@ -30,7 +30,7 @@ extension ResetPsswordResponseMapper on ResetPasswordResponse {
 extension ServiceResponseMapper on ServicesResponse? {
   Service toDomain() {
     return Service(
-        this?.id.orEmpty() ?? Constants.empty,
+        this?.id.orZerro() ?? Constants.zerro,
         this?.title.orEmpty() ?? Constants.empty,
         this?.image.orEmpty() ?? Constants.empty);
   }
@@ -39,7 +39,7 @@ extension ServiceResponseMapper on ServicesResponse? {
 extension BannerResponseMapper on BannersResponse? {
   BannerAd toDomain() {
     return BannerAd(
-        this?.id.orEmpty() ?? Constants.empty,
+        this?.id.orZerro() ?? Constants.zerro,
         this?.title.orEmpty() ?? Constants.empty,
         this?.link.orEmpty() ?? Constants.empty,
         this?.image.orEmpty() ?? Constants.empty);
@@ -49,7 +49,7 @@ extension BannerResponseMapper on BannersResponse? {
 extension StoresResponseMapper on StoresResponse? {
   Store toDomain() {
     return Store(
-        this?.id.orEmpty() ?? Constants.empty,
+        this?.id.orZerro() ?? Constants.zerro,
         this?.title.orEmpty() ?? Constants.empty,
         this?.image.orEmpty() ?? Constants.empty);
   }

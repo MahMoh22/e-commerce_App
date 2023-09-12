@@ -53,11 +53,15 @@ ThemeData themeManager() {
             color: ColorManager.darkGray, fontSize: AppSizes.s16),
         headlineMedium: getRegularStyle(
             color: ColorManager.darkGray, fontSize: AppSizes.s14),
-        titleLarge: getRegularStyle(color: ColorManager.white, fontSize: AppSizes.s16),
-        titleMedium: getMediumStyle(
-            color: ColorManager.primary, fontSize: AppSizes.s16),
+        headlineSmall:
+            getBoldStyle(color: ColorManager.primary, fontSize: AppSizes.s12),
+        titleLarge:
+            getRegularStyle(color: ColorManager.white, fontSize: AppSizes.s16),
+        titleMedium:
+            getMediumStyle(color: ColorManager.primary, fontSize: AppSizes.s16),
         bodyLarge: getRegularStyle(color: ColorManager.gray1),
-        bodySmall: getRegularStyle(color: ColorManager.gray),
+        bodySmall:
+            getRegularStyle(color: ColorManager.gray2, fontSize: AppSizes.s12),
       ),
       //InputDecoration theme (TextFormField)
       inputDecorationTheme: InputDecorationTheme(
