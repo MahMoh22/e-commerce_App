@@ -7,7 +7,7 @@ const String PREFS_KEY_ONBOARDING_SCREEN_VIEWED =
 const String PREFS_KEY_IS_USER_LOGGEDIN = "PREFS_KEY_IS_USER_LOGGEDIN";
 
 class AppPreferences {
-  SharedPreferences _preferences;
+  final SharedPreferences _preferences;
   AppPreferences(this._preferences);
 
   Future<String> getAppLang() async {

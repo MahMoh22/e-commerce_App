@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:e_commerce_app/app/app_prefs.dart';
+import 'package:e_commerce_app/data/data_source/local_data_source.dart';
 import 'package:e_commerce_app/data/data_source/remote_data_source.dart';
 import 'package:e_commerce_app/data/network/app_api.dart';
 import 'package:e_commerce_app/data/network/dio_factory.dart';
@@ -44,10 +45,12 @@ Future<void> initAppModule() async {
   // remote data source
   instance.registerLazySingleton<RemoteDataSource>(
       () => RemoteDataSourceImpl(instance()));
+  // Local data source
+  instance.registerLazySingleton<LocalDataSource>(() => LocalDataSourceImpl());
 
   // repository
   instance.registerLazySingleton<Repository>(
-      () => RepositoryImpl(instance(), instance()));
+      () => RepositoryImpl(instance(), instance(), instance()));
 }
 
 Future<void> initLoginModule() async {
