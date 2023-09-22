@@ -11,10 +11,12 @@ import 'package:e_commerce_app/domain/usecase/home_usecase.dart';
 import 'package:e_commerce_app/domain/usecase/login_usecase.dart';
 import 'package:e_commerce_app/domain/usecase/register_usecase.dart';
 import 'package:e_commerce_app/domain/usecase/reset_password_usecase.dart';
+import 'package:e_commerce_app/domain/usecase/store_details_usecase.dart';
 import 'package:e_commerce_app/presentation/forgot_password/view_model/forgot_password_view_model.dart';
 import 'package:e_commerce_app/presentation/login/view_model/login_view_model.dart';
 import 'package:e_commerce_app/presentation/main/home/view_model/home_view_model.dart';
 import 'package:e_commerce_app/presentation/register/view_model/regiter_view_model.dart';
+import 'package:e_commerce_app/presentation/store_details/view_model/store_details_view_model.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
@@ -83,5 +85,14 @@ Future<void> initHomeModule() async {
   if (!GetIt.I.isRegistered<HomeUsecase>()) {
     instance.registerFactory<HomeUsecase>(() => HomeUsecase(instance()));
     instance.registerFactory<HomeViewModel>(() => HomeViewModel(instance()));
+  }
+}
+
+Future<void> initDetailsModule() async {
+  if (!GetIt.I.isRegistered<StoreDetailsUsecase>()) {
+    instance.registerFactory<StoreDetailsUsecase>(
+        () => StoreDetailsUsecase(instance()));
+    instance.registerFactory<StoreDetailsViewModel>(
+        () => StoreDetailsViewModel(instance()));
   }
 }

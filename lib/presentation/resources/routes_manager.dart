@@ -6,7 +6,7 @@ import 'package:e_commerce_app/presentation/onboarding/view/onboarding_view.dart
 import 'package:e_commerce_app/presentation/register/view/register_view.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/splash/splash_view.dart';
-import 'package:e_commerce_app/presentation/store_details/store_details_view.dart';
+import 'package:e_commerce_app/presentation/store_details/view/store_details_view.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -39,6 +39,7 @@ class RoutesGenerator {
         initHomeModule();
         return MaterialPageRoute(builder: (_) => const MainView());
       case Routes.storeDetailsRoute:
+        initDetailsModule();
         return MaterialPageRoute(builder: (_) => const StoreDetailsView());
       default:
         return undefindRoute();

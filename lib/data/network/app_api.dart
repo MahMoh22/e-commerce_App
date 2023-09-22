@@ -1,5 +1,3 @@
-
-
 import 'package:dio/dio.dart';
 import 'package:e_commerce_app/app/constants.dart';
 import 'package:e_commerce_app/data/response/responses.dart';
@@ -27,4 +25,7 @@ abstract class AppServiceClient {
 
   @GET('/home')
   Future<HomeResponse> getHomeData();
+
+  @GET('/details/1')
+  Future<StoreDetailsResponse> getDetails();
 }

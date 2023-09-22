@@ -1,5 +1,3 @@
-
-
 import 'package:json_annotation/json_annotation.dart';
 part 'responses.g.dart';
 
@@ -75,6 +73,7 @@ class ResetPasswordResponse extends BaseResponse {
 }
 
 // home response
+
 @JsonSerializable()
 class ServicesResponse {
   @JsonKey(name: 'id')
@@ -170,4 +169,28 @@ class HomeResponse extends BaseResponse {
       _$HomeResponseFromJson(json);
   //to json
   Map<String, dynamic> toJson() => _$HomeResponseToJson(this);
+}
+
+// store details response
+@JsonSerializable()
+class StoreDetailsResponse extends BaseResponse {
+  @JsonKey(name: 'image')
+  String? image;
+  @JsonKey(name: 'id')
+  int? id;
+  @JsonKey(name: 'title')
+  String? title;
+  @JsonKey(name: 'details')
+  String? details;
+  @JsonKey(name: 'services')
+  String? services;
+  @JsonKey(name: 'about')
+  String? about;
+  StoreDetailsResponse(
+      this.image, this.id, this.title, this.details, this.services, this.about);
+  // from json
+  factory StoreDetailsResponse.fromJson(Map<String, dynamic> json) =>
+      _$StoreDetailsResponseFromJson(json);
+  // to json
+  Map<String, dynamic> toJson() => _$StoreDetailsResponseToJson(this);
 }
