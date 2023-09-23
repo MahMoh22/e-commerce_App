@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/app/di.dart';
 import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer_impl.dart';
+import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/resources/values_manager.dart';
 import 'package:e_commerce_app/presentation/store_details/view_model/store_details_view_model.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class _StoreDetailsViewState extends State<StoreDetailsView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Store Details",
+          AppStrings.storeDetails,
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
@@ -59,11 +60,11 @@ class _StoreDetailsViewState extends State<StoreDetailsView> {
             children: [
               _getImageWidget(snapshot.data?.image),
               _getTitle(snapshot.data?.title),
-              _getSectionName("Details"),
+              _getSectionName(AppStrings.details),
               _getSectionDetails(snapshot.data?.details),
-              _getSectionName("Services"),
+              _getSectionName(AppStrings.services),
               _getSectionDetails(snapshot.data?.services),
-              _getSectionName("About"),
+              _getSectionName(AppStrings.about),
               _getSectionDetails(snapshot.data?.about),
             ],
           );

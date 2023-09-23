@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/domain/model/models.dart';
+
 class AppStrings {
   static const noRouteFound = "No Route Found";
   static const skip = "Skip";
@@ -31,6 +33,13 @@ class AppStrings {
   static const settings = "Settings";
   static const services = "Services";
   static const stores = "Stores";
+  static const details = "Details";
+  static const about = "About Store";
+  static const storeDetails = "Store Details";
+  static const changeLang = "Change Language";
+  static const contactUs = "Contact Us";
+  static const shareWithFrinds = "Share With Friends";
+  static const logout = "Logout";
 
   static const onboardingTitle1 = "SEE THE BEST COURSE #1";
   static const onboardingTitle2 = "SEE THE BEST COURSE #2";

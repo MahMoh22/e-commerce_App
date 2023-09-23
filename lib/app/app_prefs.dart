@@ -34,4 +34,8 @@ class AppPreferences {
   Future<bool> isuserLoggedin() async {
     return _preferences.getBool(PREFS_KEY_IS_USER_LOGGEDIN) ?? false;
   }
+
+  Future<void> userLoggedout() async {
+    _preferences.remove(PREFS_KEY_IS_USER_LOGGEDIN);
+  }
 }

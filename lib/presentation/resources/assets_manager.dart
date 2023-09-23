@@ -1,6 +1,9 @@
 const String imagesPath = 'assets/images';
 const String jsonPath = 'assets/json';
 
+
+
+
 class ImageAssets {
   static const String splashLogo = '$imagesPath/splash_logo.png';
   static const String onboardingLogo1 = '$imagesPath/onboarding_logo1.svg';
@@ -12,6 +15,11 @@ class ImageAssets {
   static const String rightArrowIc = '$imagesPath/right_arrow_ic.svg';
   static const String leftArrowIc = '$imagesPath/left_arrow_ic.svg';
   static const String phptoCameraIc = '$imagesPath/photo_camera_ic.svg';
+  static const String changeLangIc = '$imagesPath/change_lang_ic.svg';
+  static const String contactUsIc = '$imagesPath/contact_us_ic.svg';
+  static const String inviteFriendsIc = '$imagesPath/invite_friends_ic.svg';
+  static const String logoutIc = '$imagesPath/logout_ic.svg';
+  static const String settingsRightArrowIc = '$imagesPath/settings_right_arrow_ic.svg';
 }
 
 class JsonAssets {
