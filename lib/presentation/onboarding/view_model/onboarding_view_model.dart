@@ -5,6 +5,7 @@ import 'package:e_commerce_app/presentation/base/base_view_model.dart';
 import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:e_commerce_app/presentation/resources/assets_manager.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class OnboardingViewModel
     implements
@@ -62,13 +63,13 @@ class OnboardingViewModel
   //onboarding private functions
   List<SliderObject> _getSliderData() {
     return [
-      SliderObject(AppStrings.onboardingTitle1, AppStrings.onboardingSubTitle1,
+      SliderObject(AppStrings.onboardingTitle1.tr(), AppStrings.onboardingSubTitle1.tr(),
           ImageAssets.onboardingLogo1),
-      SliderObject(AppStrings.onboardingTitle2, AppStrings.onboardingSubTitle2,
+      SliderObject(AppStrings.onboardingTitle2.tr(), AppStrings.onboardingSubTitle2.tr(),
           ImageAssets.onboardingLogo2),
-      SliderObject(AppStrings.onboardingTitle3, AppStrings.onboardingSubTitle3,
+      SliderObject(AppStrings.onboardingTitle3.tr(), AppStrings.onboardingSubTitle3.tr(),
           ImageAssets.onboardingLogo3),
-      SliderObject(AppStrings.onboardingTitle4, AppStrings.onboardingSubTitle4,
+      SliderObject(AppStrings.onboardingTitle4.tr(), AppStrings.onboardingSubTitle4.tr(),
           ImageAssets.onboardingLogo4),
     ];
   }

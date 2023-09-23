@@ -7,6 +7,7 @@ import 'package:e_commerce_app/presentation/resources/color_manager.dart';
 import 'package:e_commerce_app/presentation/resources/routes_manager.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/resources/values_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 
@@ -88,11 +89,11 @@ class _LoginViewState extends State<LoginView> {
                           keyboardType: TextInputType.emailAddress,
                           controller: _userNameController,
                           decoration: InputDecoration(
-                              hintText: AppStrings.userName,
-                              labelText: AppStrings.userName,
+                              hintText: AppStrings.userName.tr(),
+                              labelText: AppStrings.userName.tr(),
                               errorText: (snapshot.data ?? true)
                                   ? null
-                                  : AppStrings.userNameError),
+                                  : AppStrings.userNameError.tr()),
                         );
                       }),
                 ),
@@ -109,11 +110,11 @@ class _LoginViewState extends State<LoginView> {
                           keyboardType: TextInputType.text,
                           controller: _passwordController,
                           decoration: InputDecoration(
-                              hintText: AppStrings.password,
-                              labelText: AppStrings.password,
+                              hintText: AppStrings.password.tr(),
+                              labelText: AppStrings.password.tr(),
                               errorText: (snapshot.data ?? true)
                                   ? null
-                                  : AppStrings.passwordError),
+                                  : AppStrings.passwordError.tr()),
                         );
                       }),
                 ),
@@ -135,7 +136,7 @@ class _LoginViewState extends State<LoginView> {
                                       _loginViewModel.login();
                                     }
                                   : null,
-                              child: const Text(AppStrings.login)),
+                              child: Text(AppStrings.login.tr())),
                         );
                       }),
                 ),
@@ -147,11 +148,11 @@ class _LoginViewState extends State<LoginView> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Navigator.of(context).pushNamed(
-                                Routes.forgotPasswordRoute);
+                            Navigator.of(context)
+                                .pushNamed(Routes.forgotPasswordRoute);
                           },
                           child: Text(
-                            AppStrings.forgetPassword,
+                            AppStrings.forgetPassword.tr(),
                             style: Theme.of(context).textTheme.titleMedium,
                             textAlign: TextAlign.end,
                           ),
@@ -162,7 +163,7 @@ class _LoginViewState extends State<LoginView> {
                                 .pushNamed(Routes.registerRoute);
                           },
                           child: Text(
-                            AppStrings.registerText,
+                            AppStrings.registerText.tr(),
                             style: Theme.of(context).textTheme.titleMedium,
                             textAlign: TextAlign.end,
                           ),

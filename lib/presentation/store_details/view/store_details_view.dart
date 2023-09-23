@@ -3,6 +3,7 @@ import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/resources/values_manager.dart';
 import 'package:e_commerce_app/presentation/store_details/view_model/store_details_view_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class StoreDetailsView extends StatefulWidget {
@@ -15,7 +16,7 @@ class StoreDetailsView extends StatefulWidget {
 class _StoreDetailsViewState extends State<StoreDetailsView> {
   final StoreDetailsViewModel _storeDetailsViewModel =
       instance<StoreDetailsViewModel>();
-
+      
   _bind() {
     _storeDetailsViewModel.start();
   }
@@ -31,7 +32,7 @@ class _StoreDetailsViewState extends State<StoreDetailsView> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          AppStrings.storeDetails,
+          AppStrings.storeDetails.tr(),
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
@@ -60,11 +61,11 @@ class _StoreDetailsViewState extends State<StoreDetailsView> {
             children: [
               _getImageWidget(snapshot.data?.image),
               _getTitle(snapshot.data?.title),
-              _getSectionName(AppStrings.details),
+              _getSectionName(AppStrings.details.tr()),
               _getSectionDetails(snapshot.data?.details),
-              _getSectionName(AppStrings.services),
+              _getSectionName(AppStrings.services.tr()),
               _getSectionDetails(snapshot.data?.services),
-              _getSectionName(AppStrings.about),
+              _getSectionName(AppStrings.about.tr()),
               _getSectionDetails(snapshot.data?.about),
             ],
           );

@@ -5,6 +5,7 @@ import 'package:e_commerce_app/presentation/main/settings/setting_page.dart';
 import 'package:e_commerce_app/presentation/resources/color_manager.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
 import 'package:e_commerce_app/presentation/resources/values_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class MainView extends StatefulWidget {
@@ -22,10 +23,10 @@ class _MainViewState extends State<MainView> {
     const SettingsPage()
   ];
   List<String> titles = [
-    AppStrings.home,
-    AppStrings.search,
-    AppStrings.notifications,
-    AppStrings.settings
+    AppStrings.home.tr(),
+    AppStrings.search.tr(),
+    AppStrings.notifications.tr(),
+    AppStrings.settings.tr()
   ];
   var _title = "Home";
   var _currentIndix = 0;
@@ -48,16 +49,16 @@ class _MainViewState extends State<MainView> {
             unselectedItemColor: ColorManager.gray,
             currentIndex: _currentIndix,
             onTap: onTape,
-            items: const [
+            items: [
               BottomNavigationBarItem(
-                  icon: Icon(Icons.home_outlined), label: AppStrings.home),
+                  icon: const Icon(Icons.home_outlined), label: AppStrings.home.tr()),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.search), label: AppStrings.search),
+                  icon: const Icon(Icons.search), label: AppStrings.search.tr()),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.notifications_none),
-                  label: AppStrings.notifications),
+                  icon: const Icon(Icons.notifications_none),
+                  label: AppStrings.notifications.tr()),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.settings), label: AppStrings.settings),
+                  icon: const Icon(Icons.settings), label: AppStrings.settings.tr()),
             ]),
       ),
     );

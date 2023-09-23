@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/app/constants.dart';
 import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 abstract class FlowState {
@@ -16,7 +17,7 @@ class LoadingState extends FlowState {
       {required this.stateRendererType, this.message = AppStrings.loading});
 
   @override
-  String getMessage() => message ?? AppStrings.loading;
+  String getMessage() => message ?? AppStrings.loading.tr();
 
   @override
   StateRendererType getStateRendererType() => stateRendererType;
@@ -137,7 +138,7 @@ extension FlowStateExtention on FlowState {
               context: context,
               stateRendererType: getStateRendererType(),
               message: getMessage(),
-              title: AppStrings.success);
+              title: AppStrings.success.tr());
           // show content ui of the screen
           return contentScreenWidget;
         }

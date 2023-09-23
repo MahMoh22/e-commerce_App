@@ -55,5 +55,9 @@
   "contact_us": "Contact Us",
   "invite_your_friends": "Invite Your Friends",
   "logout": "Logout",
-  "reset_password": "Reset Password"
+  "reset_password": "Reset Password",
+  "user_name_error": "user name must be at least 8 chars",
+  "invalid_email_error": "the email format is wrong",
+  "invalid_mobile_error": "the mobile number must be at least 10 digits",
+  "invalid_password_error": "the password must be at least 6 digits"
 }

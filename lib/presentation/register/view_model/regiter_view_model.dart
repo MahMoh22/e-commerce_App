@@ -8,6 +8,7 @@ import 'package:e_commerce_app/presentation/common/freezed_data_classes.dart';
 import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer.dart';
 import 'package:e_commerce_app/presentation/common/state_renderer/state_renderer_impl.dart';
 import 'package:e_commerce_app/presentation/resources/strings_manager.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class RegisterViewModel
     implements
@@ -83,7 +84,7 @@ class RegisterViewModel
 
   @override
   Stream<String?> get outputErrorEmail => outputIsEmailValid
-      .map((emailValid) => emailValid ? null : AppStrings.invalidEmail);
+      .map((emailValid) => emailValid ? null : AppStrings.invalidEmailError.tr());
 
   @override
   Stream<bool> get outputIsMobileNumberValid =>
@@ -93,7 +94,7 @@ class RegisterViewModel
   @override
   Stream<String?> get outputErrorMobileNumber =>
       outputIsMobileNumberValid.map((isMobileNumberValid) =>
-          isMobileNumberValid ? null : AppStrings.invalidMobile);
+          isMobileNumberValid ? null : AppStrings.invalidMobileError.tr());
 
   @override
   Stream<bool> get outputIsPasswordValid => _passwordStreamControler.stream
@@ -101,7 +102,7 @@ class RegisterViewModel
 
   @override
   Stream<String?> get outputErrorUserPassword => outputIsPasswordValid.map(
-      (isPasswordValid) => isPasswordValid ? null : AppStrings.invalidPassword);
+      (isPasswordValid) => isPasswordValid ? null : AppStrings.invalidPasswordError.tr());
 
   @override
   Stream<File> get outputProfilePicture => _profilePictureStreamControler.stream
@@ -113,7 +114,7 @@ class RegisterViewModel
 
   @override
   Stream<String?> get outputErrorUserName => outputIsUserNameValid
-      .map((isUserName) => isUserName ? null : AppStrings.userNameErrorText);
+      .map((isUserName) => isUserName ? null : AppStrings.userNameErrorText.tr());
 
   @override
   Stream<FlowState> get outputState =>
